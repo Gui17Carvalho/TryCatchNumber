@@ -35,22 +35,21 @@ function clickNumberButton(){
     // 4) Se o try falhar, lançar exception "Erro + erro javascript"
     // 5) No finnaly informar "O número escolhido foi + " numero
 
+    document.getElementById("outputnumber").innerHTML = " ";
     number = document.getElementById("inputnumber").value
 
     try{
-        if (number < 5 || number > 10) throw 'Informe um valor maior que 5 e menor que 10';
         if (number == '') throw 'Informe um valor';
-        if ((isNaN(number))) throw 'Erro + erro JavaScript';
+        number = Number(number);
+        if (number <= 5 || number >= 10) throw 'Informe um valor maior que 5 e menor que 10';
     }
     catch(erro){
         document.getElementById("outputnumber").innerHTML = erro;
-        alert(erro);
+        console.log("Erro " + erro)
           
     }
     finally{
         alert("O número escolhido foi " + number);
     }
-
-    console.log(number)
 }
 
